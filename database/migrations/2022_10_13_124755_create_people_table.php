@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('document');
             $table->string('mobile');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
         });

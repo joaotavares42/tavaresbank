@@ -18,7 +18,7 @@ return new class extends Migration
             $table->uuid('uuid')->nullable();
             $table->string('name');
             $table->string('cod', 3)->unique();
-            $table->foreign('person_id')->references('id')->on('persons');
+            $table->foreignId('person_id')->references('id')->on('persons');
             $table->timestamps();
             $table->softDeletes();
         });

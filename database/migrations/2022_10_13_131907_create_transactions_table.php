@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('content');
             $table->decimal('amount', 8, 2);
-            $table->foreign('account_id')->references('id')->on('accounts');
+            $table->foreignId('account_id')->references('id')->on('accounts');
             $table->timestamps();
             $table->softDeletes();
         });

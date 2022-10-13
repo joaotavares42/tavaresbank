@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('complement')->nullable();
-            $table->foreign('person_id')->references('id')->on('persons');
+            $table->foreignId('person_id')->references('id')->on('persons');
             $table->timestamps();
             $table->softDeletes();
         });

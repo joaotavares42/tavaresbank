@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->nullable();
             $table->string('agency_number', 4)->unique();
-            $table->foreign('bank_id')->references('id')->on('banks');
+            $table->foreignId('bank_id')->references('id')->on('banks');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('value', 8, 2);
             $table->date('due_date');
             $table->enum('status', ['PENDING', 'PAID_OUT', 'EXPIRED']);
-            $table->foreign('account_owner')->references('id')->on('accounts');
+            $table->foreignId('account_owner')->references('id')->on('accounts');
             $table->softDeletes();
             $table->timestamps();
         });
