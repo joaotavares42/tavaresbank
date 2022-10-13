@@ -16,7 +16,7 @@ class Account extends BaseModel
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->account_number = rand(1000, 9999);
+            $model->account_number = rand(10000, 99999);
         });
     }
 

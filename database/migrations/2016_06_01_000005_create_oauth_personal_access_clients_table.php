@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('uuid')->nullable();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->enum('role', ['ADMIN', 'COMPANY', 'CUSTOMER']);
-            $table->rememberToken();
+        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->uuid('client_id');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('oauth_personal_access_clients');
     }
 };

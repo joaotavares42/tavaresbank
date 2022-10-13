@@ -15,7 +15,7 @@ class Agency extends BaseModel
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->account_number = rand(1000, 9999);
+            $model->agency_number = rand(1000, 9999);
         });
     }
 

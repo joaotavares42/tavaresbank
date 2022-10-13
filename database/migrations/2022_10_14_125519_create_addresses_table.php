@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('number');
             $table->string('neighborhood');
             $table->string('city');
-            $table->string('state');
+            $table->string('state', 2);
             $table->string('complement')->nullable();
             $table->foreignId('person_id')->references('id')->on('persons');
             $table->timestamps();
