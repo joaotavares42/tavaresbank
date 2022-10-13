@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->nullable();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->enum('role', ['ADMIN', 'COMPANY', 'CUSTOMER']);
-            $table->$table->rememberToken();
+            $table->enum('type', ['IN', 'OUT']);
+            $table->string('description');
+            $table->string('content');
+            $table->decimal('amount', 8, 2);
+            $table->foreign('account_id')->references('id')->on('accounts');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('transactions');
     }
 };

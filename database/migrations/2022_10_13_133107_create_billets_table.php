@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('billets', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->nullable();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->enum('role', ['ADMIN', 'COMPANY', 'CUSTOMER']);
-            $table->$table->rememberToken();
-            $table->timestamps();
+            $table->decimal('value', 8, 2);
+            $table->date('due_date');
+            $table->enum('status', ['PENDING', 'PAID_OUT', 'EXPIRED']);
+            $table->foreign('account_owner')->references('id')->on('accounts');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('billets');
     }
 };
