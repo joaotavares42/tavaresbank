@@ -10,7 +10,7 @@ use Ramsey\Uuid\Uuid;
 class BaseModel extends Model
 {
     use SoftDeletes;
-
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected static function boot()
     {
         parent::boot();

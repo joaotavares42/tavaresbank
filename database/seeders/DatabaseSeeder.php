@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             PersonSeeder::class,
             AddressSeeder::class,
             BankSeeder::class,
-            AgencySeeder::class
+            AgencySeeder::class,
+            OauthClientsSeeder::class
         ]);
     }
 }
