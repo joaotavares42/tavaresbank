@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('agencies', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->nullable();
-            $table->string('agency_number', 4);
+            $table->string('agency_number', 4)->unique();
             $table->foreign('bank_id')->references('id')->on('banks');
             $table->softDeletes();
             $table->timestamps();

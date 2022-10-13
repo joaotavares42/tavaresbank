@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->nullable();
-            $table->string('account_number', 5);
+            $table->string('account_number', 5)->unique();
             $table->decimal('balance', 8, 2);
             $table->string('password');
             $table->foreign('agency_id')->references('id')->on('agencies');
+            $table->foreign('person_id')->references('id')->on('persons');
             $table->softDeletes();
             $table->timestamps();
         });

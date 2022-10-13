@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('document');
             $table->string('mobile');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('addresses_id')->references('id')->on('address');
             $table->softDeletes();
             $table->timestamps();
         });
