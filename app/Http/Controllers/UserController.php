@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\EUserRole;
+use Throwable;
 use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Services\UserService;
@@ -31,7 +33,13 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        return $request;
+        try {
+            $response = $this->userService->create($request->all());
+            dd($response);
+        } catch (Throwable $e) {
+            report($e);
+            return false;
+        }
     }
 
 

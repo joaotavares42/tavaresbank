@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->nullable();
             $table->string('account_number', 5)->unique();
-            $table->decimal('balance', 8, 2);
+            $table->decimal('balance', 8, 2)->default(0);
             $table->string('password');
             $table->foreignId('agency_id')->references('id')->on('agencies');
             $table->foreignId('person_id')->references('id')->on('persons');
